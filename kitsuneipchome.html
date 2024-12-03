@@ -1,0 +1,331 @@
+<html><head><base href="." /><meta charset="UTF-8" /><title>KITSUNE-IPC | Integración de Tecnologías de Seguridad</title><meta name="viewport" content="width=device-width, initial-scale=1" /><style>
+:root {
+  --primary: #ff4d00;
+  --secondary: #2d3436;
+  --light: #f5f6fa;
+  --dark: #1e272e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+.navbar {
+  background: var(--dark);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  color: var(--primary);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 2rem 1rem;
+  padding-top: 8rem; /* Increased padding-top for mobile */
+}
+
+.hero-content {
+  max-width: 800px;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem; /* Added margin-top for better spacing */
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);  /* Increased font size */
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  margin-top: 2rem; /* Added margin to move title down */
+}
+
+.hero p {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  line-height: 1.5;
+}
+
+.products {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-info h3 {
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
+  margin-bottom: 0.5rem;
+}
+
+.product-info p {
+  font-size: clamp(0.9rem, 3vw, 1rem);
+  line-height: 1.5;
+}
+
+.cta-button {
+  background: var(--primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.cta-button:hover {
+  background: #ff6b3d;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  padding: 0 1rem;
+}
+
+#contacto {
+  padding: 4rem 1rem;
+  background: var(--dark);
+  color: white;
+  text-align: center;
+}
+
+#contacto h2 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+#contacto p {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  margin-bottom: 2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.video-container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    padding: 0 0.5rem;
+  }
+  
+  .product-card {
+    max-width: 100%;
+  }
+
+  .hero {
+    padding-top: 10rem; /* Even more padding on mobile */
+  }
+  
+  .hero-content {
+    margin-top: 3rem; /* More margin on mobile */
+  }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-content">
+      <a href="#" class="logo">KITSUNE-IPC</a>
+      <a href="#contacto" class="cta-button">Contactar</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content animate-fade-in">
+      <h1>Seguridad Inteligente para tu Hogar</h1>
+      <p>Integramos las últimas tecnologías en seguridad para brindarte tranquilidad total</p>
+      <br>
+      <a href="#productos" class="cta-button">Conoce Nuestras Soluciones</a>
+    </div>
+  </section>
+
+  <section class="video-container animate-fade-in">
+    <h2 class="video-title">Conoce Más Sobre Nosotros</h2>
+    <div class="video-wrapper">
+      <video controls>
+        <source src="[URL_DEL_VIDEO]" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+  </section>
+
+  <section id="productos" class="products">
+    <h2 class="section-title">Nuestras Soluciones de Seguridad</h2>
+    <div class="products-grid">
+      <div class="product-card animate-fade-in">
+        <svg class="product-image" viewBox="0 0 200 200">
+          <rect x="20" y="40" width="160" height="120" fill="#2d3436" rx="10"/>
+          <circle cx="100" cy="100" r="30" fill="#ff4d00"/>
+          <circle cx="100" cy="100" r="10" fill="white"/>
+        </svg>
+        <div class="product-info">
+          <h3>Cámaras de Vigilancia IP</h3>
+          <p>Monitoreo 24/7 con visión nocturna y detección de movimiento</p>
+        </div>
+      </div>
+
+      <div class="product-card animate-fade-in">
+        <svg class="product-image" viewBox="0 0 200 200">
+          <path d="M20,100 L180,100" stroke="#2d3436" stroke-width="10"/>
+          <rect x="40" y="80" width="40" height="40" fill="#ff4d00"/>
+          <rect x="120" y="80" width="40" height="40" fill="#ff4d00"/>
+        </svg>
+        <div class="product-info">
+          <h3>Cercas Eléctricas</h3>
+          <p>Protección perimetral con sistema de alarma integrado</p>
+        </div>
+      </div>
+
+      <div class="product-card animate-fade-in">
+        <svg class="product-image" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="60" fill="#2d3436"/>
+          <path d="M100,60 L100,100 L130,130" stroke="#ff4d00" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+        <div class="product-info">
+          <h3>Asistentes Virtuales</h3>
+          <p>Control por voz y automatización inteligente</p>
+        </div>
+      </div>
+
+      <div class="product-card animate-fade-in">
+        <svg class="product-image" viewBox="0 0 200 200">
+          <polygon points="100,40 40,160 160,160" fill="#2d3436"/>
+          <circle cx="100" cy="100" r="20" fill="#ff4d00"/>
+        </svg>
+        <div class="product-info">
+          <h3>Sistemas de Alarma</h3>
+          <p>Detección de intrusos y notificaciones en tiempo real</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" style="padding: 4rem 1rem; background: var(--dark); color: white; text-align: center;">
+    <h2>¿Listo para proteger tu hogar?</h2>
+    <p>Contáctanos para una consulta personalizada</p>
+    <br>
+    <a href="https://wa.me/59172191108" class="cta-button">WhatsApp</a>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      document.querySelectorAll('.animate-fade-in').forEach((el) => observer.observe(el));
+    });
+  </script>
+</body></html>
